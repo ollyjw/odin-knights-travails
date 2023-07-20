@@ -1,0 +1,37 @@
+body {
+    background-color: #111827;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;  
+    font-family: sans-serif;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(8, 105px);
+    grid-template-rows: repeat(8, 105px);
+    gap: 10px;
+    margin-top: 60px;
+}
+
+.square {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    text-transform: capitalize;
+}
+
+.square-black {
+    background-color: #737373;
+}
+
+.square-white {
+    background-color: #fdffcb;
+}
