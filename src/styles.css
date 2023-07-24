@@ -13,9 +13,9 @@ body {
 
 .gameboard {
     display: grid;
-    grid-template-columns: repeat(8, 105px);
-    grid-template-rows: repeat(8, 105px);
-    gap: 10px;
+    grid-template-columns: 0.5fr repeat(8, 105px);
+    grid-template-rows: repeat(8, 105px) 0.5fr;    
+    gap: 7.5px;
     margin-top: 60px;
 }
 
@@ -34,4 +34,20 @@ body {
 
 .square-white {
     background-color: #fdffcb;
+}
+
+.legend {
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.row {
+    width: 30px;
+}
+
+.col {
+    height: 30px;
 }
