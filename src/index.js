@@ -1,6 +1,6 @@
 // import './chess-knight.png';
 import './styles.css';
-import { knightMoves } from './knightMoves';
+import { Knight, knightMoves } from './knightMoves';
 
 // A knight in chess can move to any square on the standard 8x8 chess board from any other square on the board, given enough turns. Its basic move is two steps forward and one step to the side.
 
@@ -18,5 +18,8 @@ import { knightMoves } from './knightMoves';
 // const testKnight = new Knight(3,3); //5D
 // console.log(testKnight);
 // console.log(testKnight.getPossibleMoves());
+// knightMoves([3,3],[4,3]);
+// console.log(`Knight moves from 5D to 4D will be: ${knightMoves([3,3],[4,3])}`);
+console.log(knightMoves([3,3],[4,3]));
 
-console.log(`Knight moves from 5D to 4D will be: ${knightMoves([3,3],[4,3])}`);
+console.log(knightMoves([0,0],[7,7]));

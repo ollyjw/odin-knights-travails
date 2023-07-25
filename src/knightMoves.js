@@ -3,7 +3,7 @@ import { genBoard, displayBoard } from './board';
 export const board = genBoard();
 displayBoard();
 
-class Knight {
+export class Knight {
     constructor(row, col) {
         this.row = row;
         this.col = col;
@@ -63,7 +63,6 @@ function isWithinBoard(i, j) {
     return (i >= 0 && i <= 7 && j >= 0 && j <= 7);
 }
 
-
 // Use the chosen search algorithm to find the shortest path between the starting square (or node) and the ending square. Output what that full path looks like, e.g.:
 //   > knightMoves([3,3],[4,3])
 //   => You made it in 3 moves!  Here's your path:
@@ -71,7 +70,6 @@ function isWithinBoard(i, j) {
 //     [4,5]
 //     [2,4]
 //     [4,3]
-
 export function knightMoves(currentLocation, destination) {    
     // Create queue that will keep track of what nodes need to be searched
     const queueArray = [];
@@ -92,8 +90,6 @@ export function knightMoves(currentLocation, destination) {
             possibleMove.parent = currentKnight;
         })
 
-        //console.log(currentKnight);
-
         // Add possible moves (knight objs) to queue
         queueArray.push(...possibleMoves);
         
@@ -101,22 +97,28 @@ export function knightMoves(currentLocation, destination) {
         if (currentKnight === null) continue;
             // (continue statement terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration).
     } 
-console.log(queueArray);
-    // Remove & store first el from queue array
+
+    // Remove & store first el from queue array (should be destination)
     let knightDestination = queueArray.shift();
-    console.log(knightDestination);
+    //console.log(knightDestination);
     let counter = 0;
-    // While knights have a parent property
+    // While knights have a parent property (currentLocation input at end of queue will not have a parent prop)
     while(knightDestination.parent) {
         // add knights props to front of LO array
         levelOrderArray.unshift([knightDestination.row, knightDestination.col]);
-        // Assign each knight the values of it's parent property 
+        // Assign each knight the values of it's parent property
         knightDestination = knightDestination.parent;
-        console.log(`LO ARRAY: ${levelOrderArray}`);
+        //console.log(`LO ARRAY: ${levelOrderArray}`);
         counter ++;
     }
-    console.log(`You made it in ${counter} moves!`);
-    // add knights props to array outside of loop to return currentLocation
+    // add knights props to array outside of loop to return currentLocation coords
     levelOrderArray.unshift([knightDestination.row, knightDestination.col]);
-    return levelOrderArray; // this currently returns one array, rather than array of separate coord arrays...
+
+    console.log("LO array is:");
+    console.log(levelOrderArray);    
+    levelOrderArray.forEach(row => console.log(row.join(',')));
+
+    const result = `You made it in ${counter} moves! Knight moves from ${currentLocation}(${currentLocation[0] + 1}${String.fromCharCode(65 + currentLocation[1])}) to ${destination}(${destination[0] + 1}${String.fromCharCode(65 + destination[1])}) will be: ${levelOrderArray}`;
+
+    return result;
 }
