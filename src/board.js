@@ -3,10 +3,10 @@ import { board } from "./knightMoves";
 // Generate board and assign co-ordinates to each square
 export function genBoard() {
     const chessBoard = [];    
-    for (let i = 8; i > 0; i--) { // ROW i.e nums
+    for (let i = 0; i < 8; i++) { // ROW i.e nums
         // gen 8 row arrays each containing each coord in row
         const rowArray = [];
-        let rowCoord = i;
+        let rowCoord = i + 1;
         for (let j = 0; j < 8; j++) { // COL i.e. letters
             const colCoord = String.fromCharCode(65 + j); // convert to letters;
             const coordinate = `${rowCoord}${colCoord}`;            
@@ -14,8 +14,9 @@ export function genBoard() {
         }
         chessBoard.push(rowArray); // access coords by [rowIndex][colIndex]
     }
+    console.log("chessboard array is:");
     console.log(chessBoard);
-    console.log(`Row index 5 & col index 2 is: ${chessBoard[5][2]}`); // 3C
+    console.log(`Row index 0 & col index 0 is: ${chessBoard[0][0]}, Row 7 & col 7 is: ${chessBoard[7][7]}`);
     return chessBoard;
 }
 
