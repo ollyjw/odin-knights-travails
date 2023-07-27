@@ -1,15 +1,7 @@
-import { genBoard, displayBoard } from './board';
-
-export const board = genBoard();
-displayBoard();
-
 export class Knight {
     constructor(row, col) {
         this.row = row;
         this.col = col;
-    }
-    getCoord() {
-        return board[this.row][this.col];
     }
     getPossibleMoves() { //two steps forward and one step to the side.
         // Make 2 arrays, one containing all possible moves from a given coord (calculations of row/col indeces) & another to store the new coords
@@ -120,5 +112,7 @@ export function knightMoves(currentLocation, destination) {
 
     const result = `You made it in ${counter} moves! Knight moves from ${currentLocation}(${currentLocation[0] + 1}${String.fromCharCode(65 + currentLocation[1])}) to ${destination}(${destination[0] + 1}${String.fromCharCode(65 + destination[1])}) will be: ${levelOrderArray}`;
 
-    return result;
+    console.log(result);
+
+    return levelOrderArray;
 }
