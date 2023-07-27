@@ -9,6 +9,7 @@ body {
     align-items: center;
     align-content: center;  
     font-family: sans-serif;
+    flex-direction: column;
 }
 
 .gameboard {
@@ -45,8 +46,26 @@ body {
     background-color: #eee;
     display: flex;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
+}
+
+.info-board {
+    background-color: rgba(255,255,255, 0.8);
+    width: 870px;
+    height: 50px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #0a99ce;
+    padding: 10px 20px;
+    font-size: large;
+    border-style: none;
+    border-radius: 10px;   
 }
 
 .row {

@@ -1,3 +1,5 @@
+import { board } from "./board";
+
 export class Knight {
     constructor(row, col) {
         this.row = row;
@@ -110,8 +112,12 @@ export function knightMoves(currentLocation, destination) {
     console.log(levelOrderArray);    
     levelOrderArray.forEach(row => console.log(row.join(',')));
 
-    const result = `You made it in ${counter} moves! Knight moves from ${currentLocation}(${currentLocation[0] + 1}${String.fromCharCode(65 + currentLocation[1])}) to ${destination}(${destination[0] + 1}${String.fromCharCode(65 + destination[1])}) will be: ${levelOrderArray}`;
+    let loArrayItems = levelOrderArray.map(index => board[index[0]][index[1]]).join(", ");
 
+    const result = `You made it in ${counter} moves! Knight moves from ${currentLocation[0] + 1}${String.fromCharCode(65 + currentLocation[1])} (${currentLocation}) to ${destination[0] + 1}${String.fromCharCode(65 + destination[1])} (${destination}) will be: ${loArrayItems}`;
+
+    const resultP = document.querySelector(".result");
+    resultP.textContent = result;
     console.log(result);
 
     return levelOrderArray;

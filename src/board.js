@@ -21,10 +21,7 @@ export function genBoard() {
 }
 
 export function displayBoard() {
-    const container = document.createElement('div');
-    container.classList.add('container');
-    document.body.appendChild(container);
-
+    const container = document.querySelector(".container");
     const gameboard = document.createElement('div');
     gameboard.classList.add('gameboard');
     

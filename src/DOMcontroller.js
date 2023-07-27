@@ -3,6 +3,9 @@ import { board, displayBoard } from './board';
 
 
 const DisplayController = (() => {
+    const container = document.createElement('div');
+    container.classList.add('container');
+    document.body.appendChild(container);
     let start = null;
     let destination = null;
     let knightMovesResult = null;
@@ -54,6 +57,29 @@ const DisplayController = (() => {
             moveCounter++;
         }
     }
+
+    const resetBtn = document.createElement("button");
+    resetBtn.textContent = "Reset board";
+    resetBtn.classList.add("btn");
+    resetBtn.addEventListener("click", () => {
+        start = null;
+        destination = null;
+        knightMovesResult = null;
+        squares.forEach(square => {
+            square.classList.remove("start", "destination");
+            square.textContent = "";
+            result.textContent = "";
+        })
+        console.clear();
+    })
+
+    const infoBoard = document.createElement("div");
+    const result = document.createElement("p");
+    result.classList.add("result");
+    infoBoard.classList.add("info-board");
+    container.appendChild(infoBoard);
+    infoBoard.appendChild(result);
+    infoBoard.appendChild(resetBtn);
 
 })();
 
