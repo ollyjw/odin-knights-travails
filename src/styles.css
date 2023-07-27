@@ -26,6 +26,11 @@ body {
     align-items: center;
     font-size: 34px;
     text-transform: capitalize;
+    position: relative;
+}
+
+.square:hover {
+    filter: brightness(0.7);
 }
 
 .square-black {
@@ -50,4 +55,34 @@ body {
 
 .col {
     height: 30px;
+}
+
+.start::after {
+    content: "";
+    background-image: url(chess-knight.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 75%;
+    height: 75%;
+    z-index: +1;
+}
+
+.destination::before,
+.destination::after {
+    content: "";
+    position: absolute;
+    left: calc(100% - 110px / 2);
+    content: ' ';
+    height: 45px;
+    width: 5px;
+    background-color: rgb(255 170 170 / 50%);
+}
+.destination::before {
+    transform: rotate(45deg);
+}
+.destination::after {
+    transform: rotate(-45deg);
 }
