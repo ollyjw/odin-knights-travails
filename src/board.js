@@ -1,4 +1,4 @@
-import { board } from "./knightMoves";
+export const board = genBoard();
 
 // Generate board and assign co-ordinates to each square
 export function genBoard() {
@@ -43,7 +43,6 @@ export function displayBoard() {
             }
             const square = document.createElement('div');
             square.id = coordinate;
-            square.textContent = coordinate;
             square.classList.add('square');
             gameboard.appendChild(square);
             if ((i + j) % 2 == 0) {
