@@ -21,5 +21,8 @@ https://www.theodinproject.com/lessons/javascript-knights-travails
 
      [4,3]  
 
+View live page at: https://ollyjw.github.io/odin-knights-travails/
 
-NB: For desktop displays only.
+Click on a square to place a knight, then click another to view the squares the knight would have to move to in order to reach it.
+
+NB: For desktop displays only
